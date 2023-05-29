@@ -2,6 +2,7 @@ const { User, Thought } = require('../models');
 
 // user controller
 const userController = {
+    
     // get all users
     getAllUser(req, res) {
         User.find({})
@@ -17,14 +18,8 @@ const userController = {
     // get all users written differently than above
     // async getAllUser(req, res) {
     //     try {
-    //         const dbUserData = await User.find();
-    //         const users = await dbUserData.populate('thoughts').populate('friends');
-    //         const userObj = {
-    //             users,
-    //             dbUserData
-    //         }
-
-    //         res.json(userObj);
+    //         const dbUserData = await User.find().populate('thoughts').populate('friends');
+    //         res.json(dbUserData);
     //     } catch (err) {
     //         console.log(err);
     //         res.sendStatus(500).json(err);
