@@ -1,3 +1,5 @@
+// taken from weekly project, need to update to fit this project
+
 const connection = require('../config/connection');
 const { Course, Student } = require('../models');
 const { getRandomName, getRandomAssignments } = require('./data');
