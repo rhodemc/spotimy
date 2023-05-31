@@ -1,4 +1,4 @@
-// Purpose: API routes for the application
+// API routes for the application
 const router = require('express').Router();
 const thoughtRoutes = require('./thoughtRoutes');
 const userRoutes = require('./userRoutes');
