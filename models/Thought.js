@@ -24,7 +24,7 @@ const ReactionSchema = new Schema({
         // default value set to current timestamp
         default: Date.now,
         // use dayjs to format date
-        get: (createdAtVal) => dayjs(createdAtVal).format('MMM DD, YYYY [at] hh:mm a')
+        get: (createdAtVal) => dayjs(createdAtVal).format('MMMM D, YYYY h:mm A')
     }
 });
 
@@ -40,7 +40,7 @@ const thoughtSchema = new Schema({
         type: Date,
         default: Date.now,
         // use dayjs to format date
-        get: (createdAtVal) => dayjs(createdAtVal).format('MMM DD, YYYY [at] hh:mm a')
+        get: (createdAtVal) => dayjs(createdAtVal).format('MMMM D, YYYY h:mm A')
     },
     username: {
         type: String,

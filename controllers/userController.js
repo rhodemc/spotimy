@@ -3,28 +3,28 @@ const { User, Thought } = require('../models');
 // user controller
 const userController = {
     
-    // get all users
-    getAllUser(req, res) {
-        User.find({})
-            .select('-__v')
-            .sort({ _id: -1 })
-            .then((dbUserData) => res.json(dbUserData))
-            .catch((err) => {
-                console.log(err);
-                res.sendStatus(400);
-            });
-    },
-
-    // get all users written differently than above
-    // async getAllUser(req, res) {
-    //     try {
-    //         const dbUserData = await User.find().populate('thoughts').populate('friends');
-    //         res.json(dbUserData);
-    //     } catch (err) {
-    //         console.log(err);
-    //         res.sendStatus(500).json(err);
-    //     }
+    // get all users v1
+    // getAllUser(req, res) {
+    //     User.find({})
+    //         .select('-__v')
+    //         .sort({ _id: -1 })
+    //         .then((dbUserData) => res.json(dbUserData))
+    //         .catch((err) => {
+    //             console.log(err);
+    //             res.sendStatus(400);
+    //         });
     // },
+
+    // get all users v2
+    async getAllUser(req, res) {
+        try {
+            const dbUserData = await User.find().populate('thoughts').populate('friends');
+            res.json(dbUserData);
+        } catch (err) {
+            console.log(err);
+            res.sendStatus(500).json(err);
+        }
+    },
 
     // get one user by id
     getUserById({ params }, res) {
@@ -69,7 +69,6 @@ const userController = {
     },
 
     // delete user and users associated thoughts
-    // ** MAKE SURE THIS WORKS, WRITTEN A LITTLE DIFFERENTLY THAN WEEKLY PROJECT **
     deleteUser({ params }, res) {
         User.findOneAndDelete({ _id: params.id })
             .then((deletedUser) => {

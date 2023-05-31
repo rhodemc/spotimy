@@ -3,7 +3,7 @@ const { Thought, User } = require('../models');
 // thought controller
 const thoughtController = {
 
-    // get all thoughts
+    // get all thoughts v1
     getAllThought(req, res) {
         Thought.find({})
             .populate({
@@ -29,7 +29,7 @@ const thoughtController = {
     //         console.log(err);
     //         res.sendStatus(500).json(err);
     //     }
-    // }
+    // },
 
     // get one thought by id
     getThoughtById({ params }, res) {
